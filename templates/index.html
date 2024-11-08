@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask with PostgreSQL</title>
+</head>
+<body>
+    <h1>Items</h1>
+    
+    <ul>
+    {% for row in rows %}
+        <li>{{ row[1] }}</li> <!-- Adjust the index based on your table's column structure -->
+    {% endfor %}
+    </ul>
+    
+    <form method="POST" action="{{ url_for('add_item') }}">
+        <input type="text" name="item_name" required placeholder="Enter item name">
+        <button type="submit">Add Item</button>
+    </form>
+</body>
+</html>
