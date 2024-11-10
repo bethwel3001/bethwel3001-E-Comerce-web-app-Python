@@ -13,8 +13,6 @@ home_bp = Blueprint("home_bp",__name__,url_prefix="/home")
 
 # Create the tables in the database
 create_table()
-# Landing page
-# Route for the home page
 
 @home_bp.route('/', methods=['GET', 'POST'])
 def home_route():
