@@ -3,54 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amazon E-Commerce</title>
-    <!-- Link to the CSS file located in the static folder -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Welcome</title>
+  
+    <!-- Link to the css file located in the static folder -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body class="light-mode">
-
+<body>
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo">MyShop</div>
+    <div class="logo">
+      <h2>ShopIt</h2>
+    </div>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#contact">Contact</a></li>
       <li><a href="#partners">Partners</a></li>
-      <li><button class="register-btn" onclick="toggleLoginForm()">Register</button></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#register" class="btn-register">Register</a></li>
     </ul>
-    <button class="theme-toggler" onclick="toggleTheme()">🌙</button>
   </nav>
 
-  <!-- Main Hero Section -->
-  <section class="hero">
-    <h1>Shop the Best Deals from Amazon Directly Here</h1>
-    <button class="cta-btn">Shop Now</button>
-    <input type="text" class="search-bar" placeholder="Search products on Amazon">
+  <!-- Home Section -->
+  <section id="home" class="home-section">
+    <div class="welcome-message">
+      <h1>Welcome to ShopIt!</h1>
+      <p>Your one-stop shop for the best deals from Amazon.</p>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search for products...">
+      <button id="search-btn">Search</button>
+    </div>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+      <button id="about-btn" class="float-btn">About</button>
+      <button id="shop-now-btn" class="float-btn">Shop Now</button>
+    </div>
   </section>
 
-  <!-- Login/Signup Popup -->
-  <div id="login-form" class="popup-form">
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <h2>About Us</h2>
+    <p>We bring you the best Amazon deals, products, and reviews in real time!</p>
+  </section>
+
+  <!-- Register Section (Popup) -->
+  <div id="register-popup" class="popup">
     <div class="popup-content">
-      <h2>Login or Sign Up</h2>
-      <form id="login-signup-form">
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <button type="submit" class="submit-btn">Login</button>
+      <h2>Sign Up</h2>
+      <form>
+        <input type="text" placeholder="Username" required><br>
+        <input type="email" placeholder="Email" required><br>
+        <input type="password" placeholder="Password" required><br>
+        <button type="submit" class="btn-register">Sign Up</button>
       </form>
-      <p>Don't have an account? <a href="#" onclick="toggleLoginForm()">Sign up</a></p>
+      <p>Already have an account? <a href="#" id="login-link">Log In</a></p>
+      <button id="close-register-popup" class="close-btn">X</button>
+    </div>
+  </div>
+
+  <!-- Login Section (Popup) -->
+  <div id="login-popup" class="popup">
+    <div class="popup-content">
+      <h2>Log In</h2>
+      <form>
+        <input type="email" placeholder="Email" required><br>
+        <input type="password" placeholder="Password" required><br>
+        <button type="submit" class="btn-register">Log In</button>
+      </form>
+      <p>Don't have an account? <a href="#" id="register-link">Sign Up</a></p>
+      <button id="close-login-popup" class="close-btn">X</button>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2024 MyShop. All Rights Reserved.</p>
-    <p>Partnered with Amazon</p>
+    <p>&copy; 2024 ShopIt - All Rights Reserved</p>
   </footer>
 
-    <!-- Link to the JavaScript file located in the static folder -->
-    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
-
+  <!-- Link to the JS file (static/js/script.js) -->
+  <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
 </body>
 </html>
