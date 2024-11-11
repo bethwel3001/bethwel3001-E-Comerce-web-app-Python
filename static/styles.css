@@ -1,230 +1,373 @@
-/* styles.css */
-
-/* Global styles */
+/* Base Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth; /* Smooth scrolling between sections */
+  height: 100%;
+}
+b{
+  font-family: 'Arial', sans-serif;
+  color: red;
+}
+.logo{
+
+  font-family: 'Arial', sans-serif;
+  color: red;
+}
 body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #333;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-h1, h2 {
-  font-family: 'Arial', sans-serif;
-  color: #333;
-}
-
-/* Navbar Styles */
-.navbar {
-  background-color: #1e1e1e;
-  color: #fff;
-  padding: 15px 30px;
+/* Full-screen sections */
+section {
+  height: 100vh; /* Full screen height for each section */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  padding: 20px;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #333;
   position: fixed;
-  width: 100%;
   top: 0;
-  z-index: 1000;
+  width: 100%;
+  padding: 15px 0;
+  z-index: 1000; /* Ensure navbar stays on top */
 }
 
 .navbar .logo h2 {
-  font-size: 24px;
+  color: white;
+  font-size: 1.5rem;
+  margin-left: 20px;
 }
 
-.nav-links {
+.navbar .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  justify-content: flex-end;
 }
 
-.nav-links li a {
-  color: #fff;
+.navbar .nav-links li {
+  margin: 0 15px;
+}
+
+.navbar .nav-links li a {
   text-decoration: none;
-  font-size: 16px;
-}
-
-.nav-links li a:hover {
-  color: #ff7f50;
-}
-
-.btn-register {
-  background-color: #ff7f50;
-  padding: 8px 20px;
-  border-radius: 4px;
   color: white;
+  font-size: 1rem;
+  transition: color 0.3s;
 }
 
-.navbar ul {
+.navbar .nav-links li a:hover {
+  color: #f39c12;
+}
+
+.navbar .nav-links li a.active {
+  color: #f39c12; /* Active link color */
+}
+/* Navbar Register Button */
+.btn-register {
+  background-color: #f39c12;
+  color: white;
+  padding: 12px 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-register:hover {
+  background-color: #e67e22;
+}
+/* Floating Buttons - only visible in the home section */
+/* Home Section Styling */
+.home-section {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #fff;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure the section takes full viewport height */
+}
+/* Floating Buttons Styling */
+.floating-buttons {
   display: flex;
   gap: 20px;
   justify-content: center;
+  position: absolute; /* Positioned at the bottom of the section */
+  bottom: 50px; /* Distance from the bottom */
+  width: 100%;
+  opacity: 0; /* Initially hidden for animation */
+  transform: translateY(30px); /* Initially translated down */
+  animation: fadeInUp 1s ease-out forwards; /* Animation for fade and slide */
+  animation-delay: 0.6s; /* Delay to stagger animations */
 }
 
-/* Home Section */
-.home-section {
-  padding: 150px 20px 50px;
-  text-align: center;
-  background: linear-gradient(135deg, #ff7f50, #1e90ff);
+.float-btn {
+  background-color: #f39c12;
   color: white;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+  width: 150px; /* Fixed width for better control */
+}
+
+.float-btn:hover {
+  background-color: #e67e22;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Starts from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Ends at normal position */
+  }
+}
+/* Welcome Message Styling */
+.welcome-message {
+  margin-bottom: 30px;
+  opacity: 0; /* Initially hidden for animation */
+  transform: translateY(30px); /* Initially translated down */
+  animation: fadeInUp 1s ease-out forwards; /* Animation for fade and slide */
+  animation-delay: 0.2s; /* Delay to stagger animations */
 }
 
 .welcome-message h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .welcome-message p {
   font-size: 1.2rem;
+  color: #555;
+  margin-top: 10px;
 }
-
+/* * /Search Bar Styling */ */
+/* Search Bar Styling */
 .search-bar {
-  margin-top: 30px;
+  margin-bottom: 40px;
+  opacity: 0; /* Initially hidden for animation */
+  transform: translateY(30px); /* Initially translated down */
+  animation: fadeInUp 1s ease-out forwards; /* Animation for fade and slide */
+  animation-delay: 0.4s; /* Delay to stagger animations */
 }
 
-.search-bar input {
-  padding: 10px;
-  width: 300px;
-  border-radius: 25px;
-  border: none;
-  font-size: 16px;
+.search-bar input[type="text"] {
+  width: 100%;
+  max-width: 600px;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  outline: none;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input[type="text"]:focus {
+  border-color: #f39c12;
 }
 
 .search-bar button {
-  padding: 10px 20px;
-  background-color: #ff7f50;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.search-bar button:hover {
-  background-color: #ff5722;
-}
-
-/* Floating Buttons */
-.floating-buttons {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-.float-btn {
-  background-color: #ff7f50;
+  padding: 12px 24px;
+  background-color: #f39c12;
   color: white;
-  padding: 12px 30px;
-  border-radius: 50px;
-  font-size: 16px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 1.1rem;
   transition: background-color 0.3s ease;
 }
 
-.float-btn:hover {
-  background-color: #ff5722;
+.search-bar button:hover {
+  background-color: #e67e22;
+}
+/* Section Specific Styles */
+.home-section {
+  background: #3498db;
+  color: white;
+  text-align: center;
 }
 
-/* Popup Styles */
+.about-section {
+  background: #2ecc71;
+  color: white;
+  text-align: center;
+}
+
+.services-section {
+  background: #e74c3c;
+  color: white;
+  text-align: center;
+}
+
+.testimonials-section {
+  background: #9b59b6;
+  color: white;
+  text-align: center;
+}
+
+.partners-section {
+  background: #1abc9c;
+  color: white;
+  text-align: center;
+}
+
+.contact-section {
+  background: #34495e;
+  color: white;
+  text-align: center;
+}
+
+/* Popup styles */
 .popup {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; /* Initially hidden */
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1001;
 }
 
 .popup-content {
-  background-color: white;
-  padding: 40px;
+  background-color: #fff;
+  padding: 30px;
   border-radius: 8px;
   width: 300px;
   text-align: center;
 }
 
-.popup-content h2 {
-  margin-bottom: 20px;
-}
-
 .popup-content input {
   width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+  margin: 10px 0;
 }
 
 .popup-content button {
-  width: 100%;
-  padding: 12px;
-  background-color: #ff7f50;
-  border: none;
-  border-radius: 4px;
+  background-color: #3498db;
   color: white;
-  font-size: 16px;
+  border: none;
+  padding: 10px 20px;
   cursor: pointer;
+  margin-top: 20px;
+  border-radius: 5px;
+  width: 100%;
 }
 
 .popup-content button:hover {
-  background-color: #ff5722;
-}
-
-.popup-content a {
-  text-decoration: none;
-  color: #ff7f50;
+  background-color: #2980b9;
 }
 
 .close-btn {
-  background: none;
+  background-color: transparent;
   border: none;
-  color: #ff5722;
-  font-size: 20px;
-  cursor: pointer;
+  color: black;
+  font-size: 1.5rem;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+/* Footer Styles */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 1.2rem;
+  margin-top: 50px;
 }
 
-/* Responsive Styles for mobile */
-@media (max-width: 768px) {
-  .navbar ul {
+footer a {
+  color: #f39c12;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #e67e22;
+}
+
+footer .footer-links {
+  margin-top: 20px;
+}
+
+footer .footer-links a {
+  margin: 0 15px;
+}
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .navbar .nav-links {
     flex-direction: column;
     align-items: center;
   }
 
+  .navbar .nav-links li {
+    margin: 10px 0;
+  }
+
   .floating-buttons {
     flex-direction: column;
-    gap: 15px;
   }
 
-  .home-section h1 {
-    font-size: 2.5rem;
-  }
-
-  .search-bar input {
-    width: 80%;
-  }
-
-  .popup-content {
-    width: 90%;
+  .float-btn {
+    margin-bottom: 10px;
   }
 }
+/* * Mobile Responsiveness */ 
+@media screen and (max-width: 768px) {
+  .navbar .nav-links {
+    flex-direction: column;
+    text-align: center;
+  }
 
-/* Footer */
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 50px;
+  .navbar .nav-links li {
+    margin: 10px 0;
+  }
+
+  .search-bar input[type="text"] {
+    width: 90%;
+    max-width: 100%;
+  }
+
+  .search-bar button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .floating-buttons {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .float-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }

@@ -1,3 +1,4 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,44 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Welcome</title>
-  
-    <!-- Link to the css file located in the static folder -->
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
-      <h2>ShopIt</h2>
+      <h2>Ama-lit!</h2>
     </div>
     <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#partners">Partners</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#services" class="nav-link">Services</a></li>
+      <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+      <li><a href="#partners" class="nav-link">Partners</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
       <li><a href="#register" class="btn-register">Register</a></li>
     </ul>
   </nav>
 
-  <!-- Home Section -->
-  <section id="home" class="home-section">
-    <div class="welcome-message">
-      <h1>Welcome to ShopIt!</h1>
-      <p>Your one-stop shop for the best deals from Amazon.</p>
-    </div>
-    <div class="search-bar">
-      <input type="text" id="search" placeholder="Search for products...">
-      <button id="search-btn">Search</button>
-    </div>
+<!-- Home Section -->
+<section id="home" class="home-section">
+  <div class="welcome-message">
+    <h1>Welcome to <b>Ama-lit</b>!</h1>
+    <p>Your one-stop shop for the best deals from Amazon.</p>
+  </div>
 
-    <!-- Floating Buttons -->
-    <div class="floating-buttons">
-      <button id="about-btn" class="float-btn">About</button>
-      <button id="shop-now-btn" class="float-btn">Shop Now</button>
-    </div>
-  </section>
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="Search for products...">
+    <button id="search-btn">Search</button>
+  </div>
+
+  <!-- Floating Buttons -->
+  <div class="floating-buttons">
+<a href="#about"><button id="about-btn" class="float-btn">About</button></a>
+<a href="/signup"><button id="shop-now-btn" class="float-btn">Shop Now</button></a>
+  </div>
+</section>
+
 
   <!-- About Section -->
   <section id="about" class="about-section">
@@ -50,11 +52,42 @@
     <p>We bring you the best Amazon deals, products, and reviews in real time!</p>
   </section>
 
-  <!-- Register Section (Popup) -->
+  <!-- Services Section -->
+  <section id="services" class="services-section">
+    <h2>Our Services</h2>
+    <p>Explore a wide variety of services and products with real-time price updates!</p>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials-section">
+    <h2>What Our Customers Say</h2>
+    <p>We have hundreds of satisfied customers!</p>
+  </section>
+
+  <!-- Partners Section -->
+  <section id="partners" class="partners-section">
+    <h2>Our Partners</h2>
+    <p>We collaborate with top brands and sellers.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <p>Have any questions? Get in touch with us!</p>
+  </section>
+
+  <!-- Register Popup -->
   <div id="register-popup" class="popup">
     <div class="popup-content">
+      <!-- succes & error message -->
       <h2>Sign Up</h2>
-      <form>
+      {% if success_message %}
+        <div class="success-message">{{ success_message }}</div><br><br>
+        {% endif %}
+        {% if error_message %}
+        <div class="error-message">{{ error_message }}</div><br><br>
+        {% endif %}
+      <form action="post">
         <input type="text" placeholder="Username" required><br>
         <input type="email" placeholder="Email" required><br>
         <input type="password" placeholder="Password" required><br>
@@ -65,7 +98,7 @@
     </div>
   </div>
 
-  <!-- Login Section (Popup) -->
+  <!-- Login Popup -->
   <div id="login-popup" class="popup">
     <div class="popup-content">
       <h2>Log In</h2>
@@ -80,11 +113,19 @@
   </div>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 ShopIt - All Rights Reserved</p>
-  </footer>
-
-  <!-- Link to the JS file (static/js/script.js) -->
+  <!-- Footer -->
+<footer>
+  <p>&copy; 2024 ShopIt - All Rights Reserved</p>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <!-- Additional footer links can be added here -->
+  </div>
+</footer>
+  <!-- Link to the CSS file -->
+  <!-- Link to the JS file -->
   <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
 </body>
 </html>
