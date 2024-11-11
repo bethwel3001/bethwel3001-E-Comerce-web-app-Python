@@ -5,14 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Welcome</title>
+  <title>Welcome to Ama-lit</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+  <!-- Add this in your <head> section to include FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Add this in your <head> section to include FontAwesome -->
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
       <h2>Ama-lit!</h2>
+    </div>
+    <div class="hamburger-menu" id="hamburger-menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
     </div>
     <ul class="nav-links">
       <li><a href="#home" class="nav-link">Home</a></li>
@@ -23,6 +32,7 @@
       <li><a href="#contact" class="nav-link">Contact</a></li>
       <li><a href="#register" class="btn-register">Register</a></li>
     </ul>
+    <div class="close-menu" id="close-menu">&times;</div>
   </nav>
 
 <!-- Home Section -->
@@ -47,16 +57,66 @@
 
 
   <!-- About Section -->
-  <section id="about" class="about-section">
-    <h2>About Us</h2>
-    <p>We bring you the best Amazon deals, products, and reviews in real time!</p>
-  </section>
+<section id="about" class="about-section">
+  <!-- 4 Line Statements -->
+  <div class="about-statements">
+  <h2>About Us</h2>
+  <p>We bring you the best Amazon deals, products, and reviews in real time!</p>
+    <p>We are committed to offering the best products from Amazon at competitive prices.Our platform provides real-time updates on the latest deals and offers.</p>
+    <p>Customer satisfaction is our top priority, with seamless shopping experiences.Stay ahead of trends with our up-to-date reviews and recommendations.</p>
+    <!-- Quality Boxes -->
+  <div class="quality-boxes">
+    <div class="quality-box">
+      <i class="fas fa-clock"></i>
+      <h3>Fast</h3>
+      <p>Quick product search and instant deal updates to save you time.</p>
+    </div>
+    <div class="quality-box">
+      <i class="fas fa-shield-alt"></i>
+      <h3>Secure</h3>
+      <p>We prioritize your privacy and use secure platforms for transactions.</p>
+    </div>
+    <div class="quality-box">
+      <i class="fas fa-tags"></i>
+      <h3>Affordable</h3>
+      <p>We offer the best deals to help you get the most for your money.</p>
+    </div>
+  </div>
+  </div>
+</section>
 
   <!-- Services Section -->
-  <section id="services" class="services-section">
+<section id="services" class="services-section">
+  <div class="about-statements">
     <h2>Our Services</h2>
-    <p>Explore a wide variety of services and products with real-time price updates!</p>
-  </section>
+    <p>We offer a range of services to make your shopping experience better and more secure!</p>
+  
+  <!-- Service Boxes -->
+  <div class="service-boxes">
+    <div class="service-box" id="shipping">
+      <i class="fas fa-truck"></i>
+      <h3>Free Shipping</h3>
+      <p>Enjoy free shipping on all orders, no minimum required.</p>
+    </div>
+    <div class="service-box" id="support">
+      <i class="fas fa-headset"></i>
+      <h3>24/7 Support</h3>
+      <p>Our support team is here to help you at any time of the day.</p>
+    </div>
+    <div class="service-box" id="returns">
+      <i class="fas fa-undo"></i>
+      <h3>Easy Returns</h3>
+      <p>Return products easily within 30 days for a full refund.</p>
+    </div>
+    <div class="service-box" id="payment">
+      <i class="fas fa-lock"></i>
+      <h3>Secure Payment</h3>
+      <p>Shop with confidence using our secure payment methods.</p>
+    </div>
+  </div>
+</div>
+</section>
+
 
   <!-- Testimonials Section -->
   <section id="testimonials" class="testimonials-section">
@@ -127,5 +187,6 @@
   <!-- Link to the CSS file -->
   <!-- Link to the JS file -->
   <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='query.js') }}"></script>
 </body>
 </html>
